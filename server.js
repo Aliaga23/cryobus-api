@@ -41,27 +41,6 @@ app.use('/api/permisos', permisoRouter);
 app.use('/api/usuario', usuarioRouter); // Asegúrate de tener esta línea
 
 
-const express = require('express');
-const path = require('path');
-
-
-// Middleware para servir los archivos estáticos de la carpeta 'build'
-app.use(express.static(path.join(__dirname, 'build')));
-
-// Ruta que captura todas las peticiones HTTP GET no capturadas por las anteriores
-// y devuelve el archivo index.html de la aplicación React
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-// Configuración del puerto
-const PORT = process.env.PORT || 8081;  // Usa el puerto proporcionado por el entorno o 8081 si no se proporciona ninguno
-
-// Pone el servidor a escuchar en el puerto configurado
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
-
 
 
 
